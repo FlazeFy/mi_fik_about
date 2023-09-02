@@ -1,0 +1,124 @@
+/* Page */
+.body {
+    background: var(--whiteColor);
+}
+
+/* getToggleEnv */
+.toggle_box {
+    height: 100vh;
+    width: 100vw;
+    text-align: center !important;
+    position: relative;
+}
+.main_title {
+    color: var(--whiteColor);
+    text-transform: uppercase;
+    z-index: 1000;
+}
+
+.sec {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.sec_title {
+    font-size: var(--textHuge);
+    color: var(--whiteColor);
+    font-weight: bold;
+}
+.sec_body {
+    font-size: var(--textXLG);
+    color: var(--whiteColor);
+    font-weight: 500;
+    margin-top: var(--spaceMD);
+}
+.sec_btn {
+    padding: var(--spaceMD);
+    border: 2px solid var(--whiteColor);
+    background: transparent;
+    color: var(--whiteColor);
+    border-radius: var(--roundedJumbo);
+    margin-right: var(--spaceMD);
+}
+
+.asec, .bsec {
+    padding: var(--spaceLG);
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+.asec:hover  {
+    background: #fa9f27;
+}
+.bsec:hover {
+    background: #36b2f9;
+}
+.asec:hover ~ .sec{
+    grid-template-columns: 3fr 1fr; 
+}
+.bsec:hover ~ .sec {
+    grid-template-columns: 1fr 3fr; 
+}
+.asec {
+    text-align: start;
+    background: var(--primaryColor);
+}
+.bsec {
+    text-align: end;
+    background: var(--infoBG);
+}
+
+.env_logo {
+    border: 2.5px solid var(--whiteColor);
+    display: inline-block;
+    color: var(--whiteColor);
+    border-radius: var(--roundedCircle);
+    padding: var(--spaceSM) var(--spaceMD);
+}
+
+/* getRoleNav */
+.role {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    height: 220px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+}
+.role_box {
+    padding: var(--spaceMD);
+    background: var(--successDarkBG);
+    border-radius: var(--roundedJumbo) var(--roundedJumbo) 0 0;
+    margin-inline: var(--spaceXXSM);
+    z-index: 1000;
+}
+.role_box:hover {
+    background: var(--successBG);
+}
+.role_title {
+    font-size: var(--textJumbo);
+    color: var(--whiteColor);
+    font-weight: bold;
+}
+.role_profile_img {
+    width: 100%;
+    z-index: -1;
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
+    display: none;
+}
+.role:hover .role_profile_img {
+    display: block;
+    margin-top: -360px;
+}
+.role_main_title {
+    margin-top: var(--spaceXLG);
+    text-align: center;
+}
