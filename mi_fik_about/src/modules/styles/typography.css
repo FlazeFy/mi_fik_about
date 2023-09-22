@@ -1,3 +1,6 @@
 h1 {
     font-size: var(--textHuge) !important;
 }
+.text-primary {
+    color: var(--primaryColor) !important;
+}
