@@ -1,0 +1,52 @@
+/* getRoleNav */
+.role_box {
+    border-radius: var(--roundedJumbo);
+    margin-inline: var(--spaceXXSM);
+    height: 420px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--darkColor);
+    transition: all 0.4s;
+}
+.role_box:hover {
+    transform: rotate(5deg);
+    box-shadow: rgba(247, 138, 0, 1) 0px 7.5px 9px;
+}
+.role_title {
+    font-size: var(--textJumbo);
+    color: var(--whiteColor);
+    font-weight: bold;
+}
+.role_body {
+    font-size: var(--textXLG);
+    color: var(--whiteColor);
+    font-weight: 500;
+    margin-top: var(--spaceMD);
+}
+.role_info {
+    bottom: var(--spaceSM);
+    left: var(--spaceLG);
+    position: absolute;
+}
+
+/* getFeature */
+.feature_box {
+    border-radius: var(--roundedJumbo);
+    height: 380px;
+    width: 380px;
+    background: var(--whiteColor);
+    transition: all 0.4s;
+    margin-bottom: var(--spaceLG);
+    padding: var(--spaceLG);
+    border: 2px solid var(--primaryColor);
+}
+.feature_box:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(247, 138, 0, 1) 0px 7.5px 9px;
+}
+.feature_box .feature_title {
+    color: var(--primaryColor);
+    font-weight: 500;
+}

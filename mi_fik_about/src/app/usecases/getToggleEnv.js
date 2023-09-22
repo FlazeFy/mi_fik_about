@@ -39,6 +39,7 @@ export default function GetToggleEnv({builder}) {
                     <div>
                         <button className={landing.sec_btn}>Try it now</button>
                         <button className={landing.sec_btn}>See Detail</button>
+                        <button className={landing.sec_btn}>See Certificate</button>
                     </div>
                 </div>
                 <div className={landing.bsec} id="bsec" onMouseEnter={handleBsecHover} onMouseLeave={handleBsecMouseLeave}>
@@ -48,6 +49,7 @@ export default function GetToggleEnv({builder}) {
                     <div>
                         <button className={landing.sec_btn}>Try it now</button>
                         <button className={landing.sec_btn}>See Detail</button>
+                        <button className={landing.sec_btn}>See Certificate</button>
                     </div>
                 </div>
             </div>
