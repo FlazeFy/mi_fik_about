@@ -1,4 +1,4 @@
-/* getRoleNav */
+/* GetTeamNav */
 .role_box {
     border-radius: var(--roundedJumbo);
     margin-inline: var(--spaceXXSM);
@@ -29,15 +29,16 @@
     bottom: var(--spaceSM);
     left: var(--spaceLG);
     position: absolute;
+    padding-right: var(--spaceSM);
 }
 
 /* getFeature */
 .feature_box {
     border-radius: var(--roundedJumbo);
-    height: 380px;
-    width: 380px;
+    height: 360px;
     background: var(--whiteColor);
     transition: all 0.4s;
+    margin-inline: var(--spaceMD);
     margin-bottom: var(--spaceLG);
     padding: var(--spaceLG);
     border: 2px solid var(--primaryColor);
