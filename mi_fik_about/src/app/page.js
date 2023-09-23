@@ -8,7 +8,7 @@ import '../modules/styles/typography.css'
 import landing from './usecases/landing.module.css'
 
 // Usecases
-import GetRoleNav from './usecases/getRoleNav'
+import GetTeamNav from './usecases/GetTeamNav'
 import GetToggleEnv from './usecases/getToggleEnv'
 
 //Font awesome classicon
@@ -17,6 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { faAndroid } from '@fortawesome/free-brands-svg-icons'
 import GetFeature from './usecases/getFeature';
+import GetBreakLine from '@/components/others/breakLine';
+import { useEffect } from 'react';
 
 export default function Home() {
   const toggleNavBuilder = {
@@ -38,19 +40,19 @@ export default function Home() {
       role_url: "/role/fauzan"
     },
     {
-      role_name: "FrontEnd Dev",
+      role_name: "FrontEnd Developer",
       role_desc: "Hafiz Aditya Rozzaqy",
       role_person_img: "/images/samples/sample_profile.png",
       role_url: "/role/hafiz"
     },
     {
-      role_name: "BackEnd Dev",
+      role_name: "BackEnd & Lead Developer",
       role_desc: "Leonardho R. Sitanggang",
       role_person_img: "https://media.licdn.com/dms/image/D5603AQHbKizHEv_9fQ/profile-displayphoto-shrink_800_800/0/1693052509316?e=2147483647&v=beta&t=KkSxRuRQWx_-ocgpVduxbVWQ_wgtmpetG4CbVuImB28",
       role_url: "/role/leo"
     },
     {
-      role_name: "BackEnd Dev (API)",
+      role_name: "BackEnd Developer (API)",
       role_desc: "Rafly Farhandika",
       role_person_img: "https://media.licdn.com/dms/image/C4D03AQELA8V8zc841g/profile-displayphoto-shrink_800_800/0/1655387949404?e=2147483647&v=beta&t=Tu0Sm5YZc5e6sDxCOVB8NQFjtLx80FC22jPSSxhndw4",
       role_url: "/role/rafly"
@@ -67,42 +69,46 @@ export default function Home() {
     {
       feature_title: "Event",
       feature_img: "/images/assets/event.png",
-      feature_desc: "Explore and participate in many attractive activity that held by our community",
+      feature_desc: <span><b>Explore And Participate</b> in many attractive activity that held by our community"</span>,
     },
     {
       feature_title: "Announcement",
       feature_img: "/images/assets/announcement.png",
-      feature_desc: "Give you announce about information or the newest event about Faculty of Creative Industry",
+      feature_desc: <span>Give you <b>Announce About Information Or The Newest Event</b> about Faculty of Creative Industry</span>,
     },
     {
       feature_title: "Task",
       feature_img: "/images/assets/task.png",
-      feature_desc: "Manage and remind daily tasks that have been created",
+      feature_desc: <span><b>Manage And Remind Daily Tasks</b> that have been created</span>,
     },
     {
       feature_title: "Reminder",
       feature_img: "/images/assets/reminder.png",
-      feature_desc: "Helps you to remember tasks to be done and events to be held",
+      feature_desc: <span>Helps you to <b>Remember Tasks To Be Done And Events To Be Held</b></span>,
     },
     {
       feature_title: "Calendar",
       feature_img: "/images/assets/calendar.png",
-      feature_desc: "Display events and tasks in a structured manner within the span of one month ",
+      feature_desc: <span><b>Display Events And Tasks</b> in a structured manner within the span of one month</span>,
     },
     {
       feature_title: "Tag / Roles",
       feature_img: "/images/assets/tag.png",
-      feature_desc: "Group the events displayed according to the role you have",
+      feature_desc: <span><b>Group The Events</b> displayed according to the role you have</span>,
     },
   ]
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle");
+  }, []);
 
   return (
     <main className={landing.body}>
       <GetToggleEnv builder={toggleNavBuilder}/>
-      <br></br>
-      <GetRoleNav builder={roleNavBuilder}/>
-      <br></br>
+      <GetBreakLine length={1} />
+      <GetTeamNav builder={roleNavBuilder}/>
+      <GetBreakLine length={1} />
       <GetFeature builder={featureBuilder}/>
+      <GetBreakLine length={1} />
     </main>
   )
 }

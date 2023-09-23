@@ -4,3 +4,8 @@ h1 {
 .text-primary {
     color: var(--primaryColor) !important;
 }
+.sec-about {
+    text-align: center;
+    font-size: var(--textXMD);
+    color: var(--darkColor);
+}

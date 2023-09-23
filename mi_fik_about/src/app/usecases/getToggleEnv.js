@@ -30,7 +30,6 @@ export default function GetToggleEnv({builder}) {
 
     return (
         <div className={landing.toggle_box}> 
-            <h1 className={landing.main_title}>{builder.title}</h1>
             <div className={landing.sec} id="sec">
                 <div className={landing.asec} id="asec" onMouseEnter={handleAsecHover} onMouseLeave={handleAsecMouseLeave}>
                     <h2 className={landing.sec_title}>{builder.asec_title}</h2>
