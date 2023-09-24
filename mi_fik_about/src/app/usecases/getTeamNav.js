@@ -16,7 +16,7 @@ export default function GetTeamNav({builder}) {
             <div className={landing.role} id="team_holder">
                 {
                     builder.map((val, i, index) => {
-                        return <GetTeamContainer item={val} id={i}/>
+                        return <GetTeamContainer item={val} id={i} is_detail={true}/>
                     })
                 }
             </div>

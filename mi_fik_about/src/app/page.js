@@ -19,6 +19,7 @@ import { faAndroid } from '@fortawesome/free-brands-svg-icons'
 import GetFeature from './usecases/getFeature';
 import GetBreakLine from '@/components/others/breakLine';
 import { useEffect } from 'react';
+import GetSpecialThank from './usecases/getSpecialThanks';
 
 export default function Home() {
   const toggleNavBuilder = {
@@ -26,43 +27,146 @@ export default function Home() {
     asec_title: "Mobile Apps",
     asec_title_icon: <FontAwesomeIcon icon={faAndroid}/>,
     asec_body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-
+    asec_galleries: [
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 01"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 02"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 03"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 04"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 05"
+      },
+    ],
+    asec_main_img: "/images/samples/sample_galleries.png",
     bsec_title: "Web Apps",
     bsec_title_icon: <FontAwesomeIcon icon={faGlobe}/>,
     bsec_body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    bsec_galleries: [
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 01"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 02"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 03"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 04"
+      },
+      {
+        url: "/images/samples/sample_galleries.png", 
+        name: "sample 05"
+      },
+    ],
+    bsec_main_img: "/images/samples/sample_galleries.png",
   }
 
   const roleNavBuilder = [
     {
-      role_name: "System Analyst",
-      role_desc: "Fauzan Reza Arnanda",
+      role_context: "System Analyst",
+      role_name: "Fauzan Reza Arnanda",
       role_person_img: "https://media.licdn.com/dms/image/D5603AQHl54FoUj0waA/profile-displayphoto-shrink_800_800/0/1690270498088?e=2147483647&v=beta&t=zgYvZZMs9orq4D3RF7xRiEJPZo21WGzWWPiSgJcjXnY",
-      role_url: "/role/fauzan"
+      role_url: "/role/fauzan",
+      role_bio: "I am a student who is currently studying at Telkom University. I have an interest in the field of software development, especially with what happens in the software. Therefore, I am always open to criticism and always look for opportunities to gain new knowledge that I have never known before.",
+      website: "https://fauzanreza.github.io/",
+      email: "fauzan.rez@gmail.com",
+      linkedin: "https://www.linkedin.com/in/fauzan-reza-716bb122a/"
     },
     {
-      role_name: "FrontEnd Developer",
-      role_desc: "Hafiz Aditya Rozzaqy",
+      role_context: "FrontEnd Developer",
+      role_name: "Hafiz Aditya Rozzaqy",
       role_person_img: "/images/samples/sample_profile.png",
-      role_url: "/role/hafiz"
+      role_url: "/role/hafiz",
+      role_bio: "lorem ipsum",
+      website: null,
+      email: "rozzaqy86@gmail.com",
+      linkedin: "https://www.linkedin.com/in/hafizadityarozzaqy/"
     },
     {
-      role_name: "BackEnd & Lead Developer",
-      role_desc: "Leonardho R. Sitanggang",
+      role_context: "BackEnd & Lead Developer",
+      role_name: "Leonardho R. Sitanggang",
       role_person_img: "https://media.licdn.com/dms/image/D5603AQHbKizHEv_9fQ/profile-displayphoto-shrink_800_800/0/1693052509316?e=2147483647&v=beta&t=KkSxRuRQWx_-ocgpVduxbVWQ_wgtmpetG4CbVuImB28",
-      role_url: "/role/leo"
+      role_url: "/role/leo",
+      role_bio: "Hello there 👋, My name is Leo. I'm a Software Engineering student. Who have strong interest in web and mobile programming",
+      website: "https://leonardhors.site",
+      email: "flazen.edu@gmail.com",
+      linkedin: "https://www.linkedin.com/in/leonardho-rante-sitanggang-a5a752202/"
     },
     {
-      role_name: "BackEnd Developer (API)",
-      role_desc: "Rafly Farhandika",
+      role_context: "BackEnd Developer (API)",
+      role_name: "Rafly Farhandika",
       role_person_img: "https://media.licdn.com/dms/image/C4D03AQELA8V8zc841g/profile-displayphoto-shrink_800_800/0/1655387949404?e=2147483647&v=beta&t=Tu0Sm5YZc5e6sDxCOVB8NQFjtLx80FC22jPSSxhndw4",
-      role_url: "/role/rafly"
+      role_url: "/role/rafly",
+      role_bio: "lorem ipsum",
+      website: null,
+      email: "raflyfarhandika@gmail.com",
+      linkedin: "https://www.linkedin.com/in/rafly-farhandika-2591b4153/"
     },
     {
-      role_name: "Quality Assurance",
-      role_desc: "Alya Ghaitsa Rizky Pertiwi",
+      role_context: "Quality Assurance",
+      role_name: "Alya Ghaitsa Rizky Pertiwi",
       role_person_img: "https://media.licdn.com/dms/image/D5603AQFg_FNatQRhEg/profile-displayphoto-shrink_800_800/0/1693368317080?e=2147483647&v=beta&t=dTjj9uRDUVL1B40fnVNaPgmqyyP2aa-2bRYdhR3DIGM",
-      role_url: "/role/alya"
+      role_url: "/role/alya",
+      role_bio: "Hi, I am interested to software development especially of UIUX and Software Quality Assurance. I like to explore and learn the new things😁🙌🏻",
+      website: null,
+      email: "alyaghaitsar@gmail.com",
+      linkedin: "https://www.linkedin.com/in/alyaghaitsar/"
     }
+  ]
+
+  const thanksBuilder = [
+    {
+      role_context: "Lecturer",
+      role_name: "Dr. Mira Kania Sabariah, S.T., M.T.",
+      role_person_img: null,
+    },
+    {
+      role_context: "Lecturer",
+      role_name: "Monterico Adrian, S.T., M.T.",
+      role_person_img: null,
+    },
+    {
+      role_context: "Client",
+      role_name: "Dr. Andreas Rio Adriyanto, S.E., M.Eng.",
+      role_person_img: null,
+    },
+    {
+      role_context: "Client",
+      role_name: "Bijaksana Prabawa, S.Ds., M.M.",
+      role_person_img: null,
+    },
+    {
+      role_context: "Senior",
+      role_name: "Ceka Elgy Dwi Putra",
+      role_person_img: null,
+    },
+    {
+      role_context: "Examiner Lecturer",
+      role_name: "Dana Sulistyo Kusumo, S.T., M.T., Ph.D.",
+      role_person_img: null,
+    },
+    {
+      role_context: "Examiner Lecturer",
+      role_name: "Arfive Gandhi, S.T., M.T.I.",
+      role_person_img: null,
+    },
   ]
 
   const featureBuilder = [
@@ -109,6 +213,7 @@ export default function Home() {
       <GetBreakLine length={1} />
       <GetFeature builder={featureBuilder}/>
       <GetBreakLine length={1} />
+      <GetSpecialThank builder={thanksBuilder}/>
     </main>
   )
 }

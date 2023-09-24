@@ -9,6 +9,19 @@
     background-size: cover;
     background-color: var(--darkColor);
     transition: all 0.4s;
+    margin-bottom: var(--spaceMD);
+}
+.role_detail_box {
+    margin-inline: var(--spaceXXSM);
+    height: 420px;
+    width: 50vw;
+    position: absolute;
+    top:0;
+    left: 25vw;
+    color: black;
+    transition: all 0.4s;
+    transform: rotate(5deg);
+    display: none;
 }
 .role_box:hover {
     transform: rotate(5deg);
@@ -31,6 +44,17 @@
     position: absolute;
     padding-right: var(--spaceSM);
 }
+.close_detail {
+    position: absolute;
+    top: var(--spaceMini);
+    left: calc(var(--spaceJumbo) * -2.5);
+    background: var(--warningBG);
+    border: none;
+    color: var(--whiteColor);
+    padding: var(--spaceMD) var(--spaceLG);
+    border-radius: var(--roundedXLG);
+    font-size: var(--textXLG);
+}
 
 /* getFeature */
 .feature_box {
@@ -50,4 +74,26 @@
 .feature_box .feature_title {
     color: var(--primaryColor);
     font-weight: 500;
+}
+.contact_btn {
+    color: var(--darkColor);
+    border: none;
+    background: none;
+    border-radius: 0;
+    font-size: var(--textJumbo);
+    margin-right: var(--spaceXMD);
+}
+
+/* getGallery */
+.gallery_box {
+    border-radius: var(--roundedJumbo);
+    height: 260px;
+    width: 95%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--darkColor);
+    transition: all 0.4s;
+    margin-bottom: var(--spaceMD);
 }
