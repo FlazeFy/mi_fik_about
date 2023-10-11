@@ -9,3 +9,20 @@ h1 {
     font-size: var(--textXMD);
     color: var(--darkColor);
 }
+
+/* Content */
+.imp {
+    font-weight: bold;
+    color: var(--primaryColor);
+}
+li {
+    margin-bottom: var(--spaceSM);
+}
+.path {
+    text-decoration: none;
+    background: var(--primaryColor);
+    opacity: 100 !important;
+    color: var(--whiteColor) !important;
+    border-radius: var(--roundedSM);
+    padding: var(--spaceMini) var(--spaceXXSM);
+}

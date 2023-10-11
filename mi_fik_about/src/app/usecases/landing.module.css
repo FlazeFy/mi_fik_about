@@ -30,6 +30,11 @@
     color: var(--whiteColor);
     font-weight: bold;
 }
+.sec_subtitle {
+    font-size: calc(var(--textHuge) * 0.65);
+    color: var(--whiteColor);
+    font-weight: 500;
+}
 .sec_body {
     font-size: var(--textXLG);
     color: var(--whiteColor);
@@ -44,6 +49,9 @@
     border-radius: var(--roundedJumbo);
     margin-right: var(--spaceMD);
     margin-top: var(--spaceMD);
+}
+.sec_detail {
+    display: none;
 }
 
 .asec, .bsec {
@@ -79,6 +87,11 @@
     border-radius: var(--roundedCircle);
     padding: var(--spaceSM) var(--spaceMD);
 }
+.main_img {
+    margin-inline: auto;
+    display: block;
+    height: 30vh;
+}
 
 /* GetTeamNav */
 .role {
@@ -98,7 +111,17 @@
     margin-inline: auto;
     grid-template-columns: repeat(3, 1fr);
     width: 75%;
-    height: 220px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* GetGalleries */
+.gallery {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
     cursor: pointer;
     position: relative;
     margin-top: 20px;
