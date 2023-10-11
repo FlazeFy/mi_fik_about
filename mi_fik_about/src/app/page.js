@@ -2,6 +2,7 @@
 
 // Global CSS
 import '../modules/styles/global.css'
+import '../modules/styles/button.css'
 import '../modules/styles/typography.css'
 
 // Modules CSS
@@ -49,7 +50,7 @@ export default function Home() {
         name: "sample 05"
       },
     ],
-    asec_main_img: "/images/samples/sample_galleries.png",
+    asec_main_img: "/images/assets/main_env_mobile.png",
     bsec_title: "Web Apps",
     bsec_title_icon: <FontAwesomeIcon icon={faGlobe}/>,
     bsec_body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
@@ -75,7 +76,7 @@ export default function Home() {
         name: "sample 05"
       },
     ],
-    bsec_main_img: "/images/samples/sample_galleries.png",
+    bsec_main_img: "/images/assets/main_env_web.png",
   }
 
   const roleNavBuilder = [

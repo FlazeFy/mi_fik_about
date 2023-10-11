@@ -19,24 +19,28 @@ export default function GetToggleEnv({builder}) {
         setIsAsecHovered(true)
         document.getElementById("sec").style.gridTemplateColumns = "5fr 1fr"
         document.getElementById("asec_detail").style.display = "block"
+        document.getElementById("main_img_a").style.display = "none"
     };
   
     const handleAsecMouseLeave = () => {
         setIsAsecHovered(false)
         document.getElementById("sec").style.gridTemplateColumns = "1fr 1fr"
         document.getElementById("asec_detail").style.display = "none"
+        document.getElementById("main_img_a").style.display = "block"
     };
 
     const handleBsecHover = () => {
         setIsBsecHovered(true)
         document.getElementById("sec").style.gridTemplateColumns = "1fr 5fr"
         document.getElementById("bsec_detail").style.display = "block"
+        document.getElementById("main_img_b").style.display = "none"
     };
     
     const handleBsecMouseLeave = () => {
         setIsBsecHovered(false)
         document.getElementById("sec").style.gridTemplateColumns = "1fr 1fr"
         document.getElementById("bsec_detail").style.display = "none"
+        document.getElementById("main_img_b").style.display = "block"
     };
 
     return (
@@ -45,7 +49,9 @@ export default function GetToggleEnv({builder}) {
                 <div className={landing.asec} id="asec" onMouseEnter={handleAsecHover} onMouseLeave={handleAsecMouseLeave}>
                     <h2 className={landing.sec_title}>{builder['asec_title']}</h2>
                     <div className={landing.env_logo}>{builder['asec_title_icon']}</div>
-                    <img src={landing.asec_main_img}/>
+
+                    <GetBreakLine length={1}/>
+                    <img className={landing.main_img} id="main_img_a" src={builder['asec_main_img']}/>
                     <p className={landing.sec_body}>{builder['asec_body']}</p>
                     <div>
                         <button className={landing.sec_btn}><FontAwesomeIcon icon={faPlay}/> Try it now</button>
@@ -62,7 +68,9 @@ export default function GetToggleEnv({builder}) {
                 <div className={landing.bsec} id="bsec" onMouseEnter={handleBsecHover} onMouseLeave={handleBsecMouseLeave}>
                     <h2 className={landing.sec_title}>{builder['bsec_title']}</h2>
                     <div className={landing.env_logo}>{builder['bsec_title_icon']}</div>
-                    <img src={landing.bsec_main_img}/>
+
+                    <GetBreakLine length={1}/>
+                    <img className={landing.main_img} id="main_img_b" src={builder['bsec_main_img']}/>
                     <p className={landing.sec_body}>{builder['bsec_body']}</p>
                     <div>
                         <button className={landing.sec_btn}><FontAwesomeIcon icon={faPlay}/> Try it now</button>

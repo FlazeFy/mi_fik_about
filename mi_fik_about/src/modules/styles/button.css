@@ -1,0 +1,13 @@
+.btn {
+    padding: var(--spaceMD) var(--spaceLG);
+    border-radius: var(--roundedLG);
+    margin-bottom: var(--spaceMD);
+}
+.btn-primary {
+    background: var(--primaryColor);
+    border: none;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background: #e68200 !important;
+    border: none;
+}
