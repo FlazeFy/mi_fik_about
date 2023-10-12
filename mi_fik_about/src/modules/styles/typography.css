@@ -25,4 +25,7 @@ li {
     color: var(--whiteColor) !important;
     border-radius: var(--roundedSM);
     padding: var(--spaceMini) var(--spaceXXSM);
+    margin-right: var(--spaceXXSM);
+    display: inline-block;
+    margin-bottom: var(--spaceXSM);
 }

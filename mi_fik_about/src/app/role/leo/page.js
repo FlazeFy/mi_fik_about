@@ -12,13 +12,59 @@ import GetBreakLine from "@/components/others/breakLine";
 import GetLabel from '@/components/labels/getLabel';
 import GetNavTab from '@/components/containers/nav_tabs';
 import { getAgeFromBirthDate } from '@/modules/helpers/math';
+import GetWorkflowContainer from '@/components/containers/workflow';
 
 export default function RoleLeo() {
     const contentCollapse = <p className='sec-about'>Lorem ipsum</p>
+    const workflows = [
+        {
+            step_name: "Analyze requirement",
+            step_body: <p>After the whole team created the mockup API, UI Design from FrontEnd Dev, and Software Requirement Specification from System Analyst. 
+                I analyze the logic based on the cases, define the parameter or input/output, and define the services that will be used in a feature.</p>,
+            related_with: <a href='/role/fauzan' className='path'>System Analyst</a>,
+            resource: <> 
+                <a href='https://drive.google.com/file/d/1lUdmC8PNRc032GUK22CxNR1T_ZYb2FSM/view?usp=sharing' className='path ms-1'>Software Requirement Specification</a>
+                <a href='https://drive.google.com/file/d/1-gLHpK4jgP-98nPkkU9ijGh220o6gkpd/view?usp=sharing' className='path'>MockUp API</a>
+                <a href='https://drive.google.com/file/d/1GrsgTJj2rxZFTpob6a4C0GHIU_vpDHIk/view?usp=sharing' className='path'>Software Development Specification</a>
+                </>
+        },
+        {
+            step_name: "Define the task",
+            step_body: <p>asdas</p>,
+            related_with: <><a href='/role/hafiz' className='path'>FrontEnd Dev</a><a href='/role/rafly' className='path'>BackEnd API Dev</a></>
+        },
+        {
+            step_name: "Development",
+            step_body: <p>asdas</p>,
+            related_with: <><a href='/role/hafiz' className='path'>FrontEnd Dev</a><a href='/role/rafly' className='path'>BackEnd API Dev</a></>
+        },
+        {
+            step_name: "Internal testing & Documentation",
+            step_body: <p>asdas</p>,
+            related_with: null
+        },
+        {
+            step_name: "Deployment",
+            step_body: <p>asdas</p>,
+            related_with: null,
+            resource: <> 
+                <a href='https://mifik.id' className='path ms-1'>Web App (Released)</a>
+                <a href='https://tinyurl.com/MIFIKBeta' className='path'>Mobile App (Released)</a>
+                </>
+        },
+        {
+            step_name: "Bug Fixing",
+            step_body: <p>asdas</p>,
+            related_with: <><a href='/role/hafiz' className='path'>FrontEnd Dev</a><a href='/role/alya' className='path'>Quality Assurance</a><a href='/role/rafly' className='path'>BackEnd API Dev</a></>,
+            resource: <> 
+                <a href='https://docs.google.com/spreadsheets/d/1uJLKmSCPf1DN6IVDB1EYhFjJUTjO6I8R/edit?usp=sharing&ouid=107141879978497685544&rtpof=true&sd=true' className='path ms-1'>Bug Report</a>
+                </>
+        }
+    ]
     const toggleNavBuilder = [
         {
             title: "About Me & My Role",
-            fun: null,
+            id: "about",
             body: <>
                 <header>About Me</header>
                 <p>
@@ -26,9 +72,10 @@ export default function RoleLeo() {
                     My main skill in web programming are <b className='imp'>PHP Dev</b> and <b className='imp'>Golang Dev</b>. Also I'm using <b className='imp'>Flutter</b> when i code in mobile environment.
                 </p>
                 <p>
-                    I'm a morning <b className='imp'>person</b>, <b className='imp'>diligent</b>, and <b className='imp'>hard-working people</b>. Beside coding, I'm like to learn about history, watching documentary movie, and I liked to travel everyplace who have great nature.
+                    I'm a <b className='imp'>morning person</b>, <b className='imp'>diligent</b>, and <b className='imp'>hard-working people</b>. Beside coding, I'm like to learn about history, watching documentary movie, and I liked to travel everyplace who have great nature.
                     In the future I'd like to learn about 3D Design and Music Production.
                 </p>
+                <GetBreakLine length={1}/>
 
                 <header>My Role</header>
                 <p>
@@ -50,28 +97,29 @@ export default function RoleLeo() {
         },
         {
             title: "Workflow",
-            fun: null,
+            id: "workflow",
             body: <>
                 <header>Workflow</header>
+                <GetWorkflowContainer builder={workflows}/>
             </>,
         },
         {
             title: "Related Document",
-            fun: null,
+            id: "doc",
             body: <>
                 <header>Related Document</header>
             </>,
         },
         {
             title: "Galleries",
-            fun: null,
+            id: "gall",
             body: <>
                 <header>Galleries</header>
             </>,
         },
         {
             title: "Reference",
-            fun: null,
+            id: "ref",
             body: <>
                 <header>Reference</header>
             </>,
