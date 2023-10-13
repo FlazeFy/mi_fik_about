@@ -127,3 +127,48 @@
     font-weight: bold;
     font-size: calc(var(--textXJumbo) - var(--textXSM));
 }
+
+/* GetWorkflowContainer */
+.flowbox_item{
+    position:relative;
+    padding-right:6px !important;
+}
+.flowbox .flowbox_item {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid #82909c;
+    position: relative;
+}
+.flowbox .flowbox_item header {
+    line-height: 18px;
+    font-size: var(--textXLG) !important;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--primaryColor);
+    margin-bottom: var(--spaceXMD);
+}
+.flowbox .flowbox_item:last-child {
+    padding-bottom: 0;
+}
+.flowbox .flowbox_item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: var(--whiteColor);
+    border: 2px solid #82909c;
+}
+.flowbox_more {
+    text-decoration: none;
+    color: var(--infoBG) !important;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}

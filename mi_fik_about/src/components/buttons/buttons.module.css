@@ -1,0 +1,11 @@
+/* GetSocmedGroup */
+.socmed_link {
+    color: var(--infoBG);
+    margin-right: var(--spaceMD);
+}
+
+/* GetReferenceButton */
+.ref_link {
+    text-decoration: none;
+    color: var(--infoBG) !important;
+}
