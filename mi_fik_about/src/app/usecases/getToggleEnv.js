@@ -8,6 +8,7 @@ import landing from './landing.module.css'
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleInfo, faDownload, faPlay } from "@fortawesome/free-solid-svg-icons"
+
 import GetBreakLine from '@/components/others/breakLine'
 import GetGalleries from './getGalleries'
 
