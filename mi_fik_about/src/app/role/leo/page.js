@@ -16,6 +16,7 @@ import GetWorkflowContainer from '@/components/containers/workflow';
 import GetDoubleImage from '@/components/images/double_img';
 import GetSocmedGroup from '@/components/buttons/social';
 import GetReferenceButton from '@/components/buttons/reference';
+import GetSmoothLayout from '@/components/containers/smooth_layout';
 
 export default function RoleLeo() {
     const contentCollapse = <p className='sec-about'>Lorem ipsum</p>
@@ -93,6 +94,42 @@ export default function RoleLeo() {
         website: "https://leonardhors.site/"
     }
 
+    const gall = [
+        {
+            elm: <img className='img img-fluid' src="https://leonardhors.site/public/assets/img/mifik/Screen%20Shot%202023-10-13%20at%2022.09.21.png"/>,
+            type: "images",
+            body: <p>Web App's Code & Database</p>
+        },
+        {
+            elm: <img className='img img-fluid' src="https://leonardhors.site/public/assets/img/mifik/Screen%20Shot%202023-10-13%20at%2022.10.35.png"/>,
+            type: "images",
+            body: <p>Web App</p>
+        },
+        {
+            elm: <img className='img img-fluid' src="https://leonardhors.site/public/assets/img/mifik/Screen%20Shot%202023-10-13%20at%2022.29.49.png"/>,
+            type: "images",
+            body: <p>Mobile App</p>
+        },
+        {
+            elm: <img className='img img-fluid' src="https://leonardhors.site/public/assets/img/mifik/Screen%20Shot%202023-10-13%20at%2022.37.23.png"/>,
+            type: "images",
+            body: <p>Mobile App's Code</p>
+        },
+        {
+            elm: `class Help extends Model
+            {
+                use HasFactory;
+                public $incrementing = false;
+                
+                protected $table = 'helps';
+                protected $primaryKey = 'id';
+                protected $fillable = ['id','help_type', 'help_category', 'help_body', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
+            }`,
+            type: "code",
+            body: <p>Example Model</p>
+        }
+    ]
+
     const toggleNavBuilder = [
         {
             title: "About Me & My Role",
@@ -151,6 +188,7 @@ export default function RoleLeo() {
             id: "gall",
             body: <>
                 <header>Galleries</header>
+                <GetSmoothLayout builder={gall}/>
             </>,
         },
         {

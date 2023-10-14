@@ -59,3 +59,22 @@
     --importantItem : #FCC4C4;
     --semiPrimary : #FFF1DF;
 }
+
+/* SmoothLayout */
+.grid-item {
+    padding: var(--spaceXSM);
+}
+.grid-item img, .grid-item div {
+    border-radius: var(--roundedMD);
+    cursor: pointer;
+}
+
+/* Code snippet */
+.cm-editor {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px;
+    border-radius: var(--roundedMD);
+}
+.cm-gutters {
+    border-top-left-radius: var(--roundedMD);
+    border-bottom-left-radius: var(--roundedMD);
+}

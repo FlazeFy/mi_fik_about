@@ -172,3 +172,17 @@
     margin: 0;
     font-weight: 500;
 }
+
+/* GetSmoothLayout */
+.btn_grid_img {
+    padding: 0;
+    margin: 0;
+    border-radius: var(--roundedMD);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px;
+}
+.btn_grid_img:hover {
+    box-shadow: rgba(247, 138, 0, 1) 0px 7.5px 9px;
+}
