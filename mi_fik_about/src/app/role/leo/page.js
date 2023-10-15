@@ -126,8 +126,175 @@ export default function RoleLeo() {
                 protected $fillable = ['id','help_type', 'help_category', 'help_body', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
             }`,
             type: "code",
-            body: <p>Example Model</p>
-        }
+            body: <p><b>Web App</b> Example Model - Update help info</p>
+        },
+        {
+            elm: `public function edit_help_body(Request $request, $id)
+            {
+                $user_id = Generator::getUserIdV2(session()->get('role_key')); 
+        
+                $validator = Validation::getValidateBodyTypeEdit($request);
+                if ($validator->fails()) {
+                    $errors = $validator->messages();
+        
+                    return redirect()->back()->with('failed_message', $errors);
+                } else {
+                    $data = new Request();
+                    $obj = [
+                        'history_type' => "help",
+                        'history_body' => "Has updated a ".$request->help_category."'s help body"
+                    ];
+                    $data->merge($obj);
+        
+                    $validatorHistory = Validation::getValidateHistory($data);
+                    if ($validatorHistory->fails()) {
+                        $errors = $validatorHistory->messages();
+        
+                        return redirect()->back()->with('failed_message', $errors);
+                    } else {
+                        Help::where('id', $id)->update([
+                            'help_body' => Converter::getCleanQuotes($request->help_body),
+                            'updated_at' => date("Y-m-d H:i"),
+                            'updated_by' => $user_id,
+                        ]);
+        
+                        History::create([
+                            'id' => Generator::getUUID(),
+                            'history_type' => Converter::getCleanQuotes($data->history_type), 
+                            'context_id' => null, 
+                            'history_body' => Converter::getCleanQuotes($data->history_body), 
+                            'history_send_to' => null,
+                            'created_at' => date("Y-m-d H:i:s"),
+                            'created_by' => $user_id
+                        ]);
+                        
+                        return redirect()->back()->with('success_message', Generator::getMessageTemplate("business_update",'help body',null));  
+                    }
+                }  
+            }`,
+            type: "code",
+            body: <p><b>Web App</b> Example Controller - Update help info</p>
+        },
+        {
+            elm: `@if(session()->get('toogle_edit_help') == "true")
+                <div id="rich_box_desc" style="height: 40vh !important;"></div>
+                <h6 class="fst-italic mt-2" style="font-size:14px;">{{ __('messages.last_updated') }} : <span class="text-primary" id="desc_updated"></span> </h6>
+            
+                <form class="d-inline" method="POST" action="/about/toogle/help/false">
+                    @csrf
+                    <button class="btn btn-danger rounded-pill mt-3 me-2 px-3 py-2" type="submit"><i class="fa-regular fa-pen-to-square"></i> {{ __('messages.close') }}</button>
+                </form>
+                <form class="d-none" id="form-edit-desc" method="POST" action="">
+                    @csrf
+                    <input name="help_body" id="about_body_help" hidden>
+                    <input name="help_category" id="about_category" hidden>
+                    <button class="btn btn-success rounded-pill mt-3 px-3 py-2" onclick="getRichTextHelpDesc(id_body)"><i class="fa-solid fa-floppy-disk"></i> {{ __('messages.save') }}</button>
+                </form>
+                <form class="d-none" id="form-delete-cat" method="POST" action="">
+                    @csrf
+                    <input name="help_category" id="about_category" hidden>
+                    <button class="btn btn-danger rounded-pill mt-3 px-3 py-2" onclick="deleteCategory(id_body)"><i class="fa-solid fa-trash"></i> {{ __('messages.delete') }}</button>
+                </form>
+            @else
+                <div class="px-2 position-relative">
+                    <form class="d-inline position-absolute" style="right:0; top:-25px;" method="POST" action="/about/toogle/help/true">
+                        @csrf
+                        <button class="btn btn-info rounded-pill mt-3 px-3 py-2" type="submit"><i class="fa-regular fa-pen-to-square"></i> {{ __('messages.edit') }}</button>
+                    </form>
+                    <div class="position-absolute text-center" id="no_cat_selected" style="top:100px; left:25%;">
+                        <img src="{{ asset('/assets/editor.png')}}" class='img nodata-icon-req' style="width:30vh; height:30vh;">
+                        <h6 class='text-secondary text-center'>{{ __('messages.see_help_type') }}</h6>
+                    </div>
+                    <div id="desc_holder_view"></div>
+                </div>
+            @endif`,
+            type: "code",
+            body: <p><b>Web App</b> Example View - Update help info</p>
+        },
+        {
+            elm: `public static function getRandomDate($null){
+                if($null == 0){
+                    $start = strtotime('2018-01-01 00:00:00');
+                    $end = strtotime(date("Y-m-d H:i:s"));
+                    $random = mt_rand($start, $end); 
+                    $res = date('Y-m-d H:i:s', $random);
+                } else {
+                    $res = null;
+                }
+        
+                return $res;
+            }`,
+            type: "code",
+            body: <p><b>Web App</b> Example Helper</p>
+        },
+        {
+            elm: `Route::prefix('/about')->middleware(['auth_v2:sanctum'])->group(function () {
+                Route::post('/help/edit/body/{id}', [AboutController::class, 'edit_help_body']);
+            });`,
+            type: "code",
+            body: <p><b>Web App</b> Example Routes</p>
+        },
+        {
+            elm: `Future<List<MyQuestionModel>> getMyFAQ(int page) async {
+                final prefs = await SharedPreferences.getInstance();
+            
+                final connectivityResult = await (Connectivity().checkConnectivity());
+                if (connectivityResult == ConnectivityResult.none) {
+                  if (prefs.containsKey("myfaq-$page-sess")) {
+                    if (!isOffline) {
+                      Get.snackbar(
+                          "Warning".tr, "Lost connection, all data shown are local".tr,
+                          backgroundColor: whiteColor);
+                      isOffline = true;
+                    }
+                    return myQuestionModelFromJsonWPaginate(
+                        prefs.getString("myfaq-$page-sess"));
+                  } else {
+                    return null;
+                  }
+                } else {
+                  if (isOffline) {
+                    Get.snackbar("Warning".tr, "Welcome back, all data are now realtime".tr,
+                        backgroundColor: whiteColor);
+                    isOffline = false;
+                  }
+                  final token = prefs.getString('token_key');
+            
+                  final header = {
+                    'Accept': 'application/json',
+                    'Authorization': "Bearer $token",
+                  };
+            
+                  final response = await client.get(
+                      Uri.parse("$emuUrl/api/v1/faq/question?page=$page"),
+                      headers: header);
+                  if (response.statusCode == 200) {
+                    prefs.setString("myfaq-$page-sess", response.body);
+                    return myQuestionModelFromJsonWPaginate(response.body);
+                  } else if (response.statusCode == 401) {
+                    await getDestroyTrace(false);
+                    return null;
+                  } else {
+                    return null;
+                  }
+                }
+            }`,
+            type: "code",
+            body: <p><b>Mobile App</b> Example Service - Get my Question</p>
+        },
+        {
+            elm: `String getRandomString(int length) {
+                var chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+                Random rnd = Random();
+              
+                String.fromCharCodes(Iterable.generate(
+                    length, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
+              
+                return chars;
+            }`,
+            type: "code",
+            body: <p><b>Mobile App</b> Example Helper</p>
+        },
     ]
 
     const toggleNavBuilder = [

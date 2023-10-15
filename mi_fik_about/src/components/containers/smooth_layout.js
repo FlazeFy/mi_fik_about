@@ -55,7 +55,7 @@ export default function GetSmoothLayout({builder}) {
                         {
                             val['type'] == 'code' ?
                                 <>
-                                    <div className="">
+                                    <div style={{marginTop:"var(--spaceLG)"}}>
                                         <h6>{val['body']}</h6>
                                         <GetCodeSnippet builder={val['elm']}/>
                                     </div>
